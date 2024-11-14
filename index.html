@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="Style.css">
+    <title>Frutería Fresh</title>
+</head>
+<body>
+    <header>
+        <h1>Frutería Fresh</h1>
+    </header>
+
+    <nav>
+        <a href="#inicio">Inicio</a>
+        <a href="#productos">Productos</a>
+        <a href="#carrito">Carrito</a>
+    </nav>
+
+    <section id="inicio" class="hero">
+        <div class="hero-content">
+            <h2>Bienvenidos a Frutería Fresh</h2>
+            <p>Las frutas más frescas para tu hogar</p>
+            <a href="#productos" class="hero-button">Ver Productos</a>
+        </div>
+    </section>
+
+    <section id="productos" class="productos">
+        <h2>Nuestros Productos</h2>
+        <div class="productos-grid">
+            <div class="producto">
+                <img src="Imagenes/manzana.jpeg" alt="Manzanas">
+                <h3>Manzanas</h3>
+                <p>€2.99/kg</p>
+                <form action="/agregar-al-carrito" method="POST">
+                    <input type="hidden" name="producto" value="manzanas">
+                    <input type="hidden" name="precio" value="2.99">
+                    <input type="number" name="cantidad" value="1" min="0.5" step="0.5" required>
+                    <button type="submit">Añadir al carrito</button>
+                </form>
+            </div>
+            <div class="producto">
+                <img src="Imagenes/banane-large.jpg" alt="Plátanos">
+                <h3>Plátanos</h3>
+                <p>€1.99/kg</p>
+                <form action="/agregar-al-carrito" method="POST">
+                    <input type="hidden" name="producto" value="platanos">
+                    <input type="hidden" name="precio" value="1.99">
+                    <input type="number" name="cantidad" value="1" min="0.5" step="0.5" required>
+                    <button type="submit">Añadir al carrito</button>
+                </form>
+            </div>
+            <div class="producto">
+                <img src="Imagenes/naranja_g.jpg" alt="Naranjas">
+                <h3>Naranjas</h3>
+                <p>€2.49/kg</p>
+                <form action="/agregar-al-carrito" method="POST">
+                    <input type="hidden" name="producto" value="naranjas">
+                    <input type="hidden" name="precio" value="2.49">
+                    <input type="number" name="cantidad" value="1" min="0.5" step="0.5" required>
+                    <button type="submit">Añadir al carrito</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <section id="carrito" class="carrito">
+        <h2>Tu Carrito</h2>
+        <div class="carrito-item">
+            <img src="Imagenes/manzana.jpeg" alt="Manzanas">
+            <div>
+                <h3>Manzanas</h3>
+                <p>€2.99/kg</p>
+            </div>
+            <div>
+                <form action="/actualizar-carrito" method="POST" style="margin-right: 10px;">
+                    <input type="hidden" name="producto" value="manzanas">
+                    <input type="number" name="cantidad" value="2" min="0.5" step="0.5" style="width: 60px;">
+                    <button type="submit">Actualizar</button>
+                </form>
+                <form action="/eliminar-del-carrito" method="POST" style="display: inline;">
+                    <input type="hidden" name="producto" value="manzanas">
+                    <button type="submit" class="btn-eliminar">Eliminar</button>
+                </form>
+            </div>
+        </div>
+        <div class="carrito-item">
+            <img src="Imagenes/banane-large.jpg" alt="Plátanos">
+            <div>
+                <h3>Plátanos</h3>
+                <p>€1.99/kg</p>
+            </div>
+            <div>
+                <form action="/actualizar-carrito" method="POST" style="margin-right: 10px;">
+                    <input type="hidden" name="producto" value="platanos">
+                    <input type="number" name="cantidad" value="1.5" min="0.5" step="0.5" style="width: 60px;">
+                    <button type="submit">Actualizar</button>
+                </form>
+                <form action="/eliminar-del-carrito" method="POST" style="display: inline;">
+                    <input type="hidden" name="producto" value="platanos">
+                    <button type="submit" class="btn-eliminar">Eliminar</button>
+                </form>
+            </div>
+        </div>
+        <div style="text-align: right; padding: 1rem;">
+            <h3>Total: €7.97</h3>
+            <form action="/finalizar-compra" method="POST">
+                <button type="submit" style="background-color: #4CAF50; color: white; border: none; padding: 0.5rem 1rem; border-radius: 4px; cursor: pointer; margin-top: 1rem;">
+                    Finalizar Compra
+                </button>
+            </form>
+        </div>
+    </section>
+
+    <footer>
+        <p>© 2024 Frutería Fresh - Miguel Angel Hurtado Perdomo</p>
+    </footer>
+</body>
+</html>
